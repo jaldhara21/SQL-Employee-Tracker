@@ -1,0 +1,4 @@
+# indicates which folder/files Git should ignore
+node_modules
+package-lock.json
+.DS_Store
