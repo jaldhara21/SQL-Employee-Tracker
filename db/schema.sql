@@ -1,7 +1,7 @@
 -- Drops the employeeTracker_db if it exists currently --
 -- Creates the employeeTracker_db database --
 -- use employeeTracker_db database --
-DROP DATABASE IF EXITS employeeTracker_db;
+DROP DATABASE IF EXISTS employeeTracker_db;
 CREATE DATABASE employeeTracker_db;
 USE employeeTracker_db;
 

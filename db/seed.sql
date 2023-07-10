@@ -1,3 +1,4 @@
+-- Inserting records into the 'departments' table
 INSERT INTO departments (department_name)
 VALUES 
 ('Executive Board'),
@@ -9,6 +10,7 @@ VALUES
 ('Legal'),
 ('Maintenance');
 
+-- Inserting records into the 'roles' table
 INSERT INTO roles (title, salary, department_id)
 VALUES 
 ('Chief Executive Officer', 555000.00, 1),
@@ -20,6 +22,7 @@ VALUES
 ('Legal Manager', 95000.00, 7),
 ('Maintenance Manager', 135000.00, 8);
 
+-- Inserting records into the 'employee' table
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES
 ('James', 'Antezana', 1, 1),
@@ -29,5 +32,5 @@ VALUES
 ('Carlos', 'Hobbes', 5, 5),
 ('Mary', 'Neumann', 6, 6),
 ('Tom', 'Holland', 7, 7),
-('Ana', 'Ford', 8, 8),
+('Ana', 'Ford', 8, 8);
 
