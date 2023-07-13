@@ -113,26 +113,30 @@ async function addRole() {
   const answers = await inquirer.prompt([
     {
       type: "input",
-      name: "newRole",
+      name: "title",
       message: "What is the new role?",
     },
     {
       type: "input",
-      name: "newSalary",
+      name: "salary",
       message: "What is the salary?",
     },
     {
       type: "input",
-      name: "newDepartID",
-      message: "What is the department ID?",
+      name: "department",
+      message: "What is the department new role?",
+      choices: res.map(
+        (department) => department.department_name
+      ),
     },
   ]);
   // Insert new role into the database
   db.query(
     `INSERT INTO role (title, salary, department_id) VALUES (?, ?, ?)`,
-    [answers.newRole, answers.newSalary, answers.newDepartID],
+    [answers.title, answers.salary, answers.department],
     (err, result) => {
       if (err) throw err;
+      console.table(result);
       employee_tracker();
     }
   );
@@ -153,7 +157,7 @@ async function addEmployee() {
     },
     {
       type: "input",
-      name: "newRole",
+      name: "roleId",
       message: "What is the new employees' role ID?",
     },
     {
@@ -165,9 +169,10 @@ async function addEmployee() {
   // Insert new employee into the database
   db.query(
     `INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)`,
-    [answers.firstName, answers.lastName, answers.newRole, answers.managerID],
+    [answers.firstName, answers.lastName, answers.roleId, answers.managerID],
     (err, result) => {
       if (err) throw err;
+      console.table(result);
       employee_tracker();
     }
   );
