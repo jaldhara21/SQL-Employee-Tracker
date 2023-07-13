@@ -1,6 +1,7 @@
 const inquirer = require("inquirer");
 const db = require("./db/connection");
 
+
 // Start server after DB connection
 db.connect((err) => {
   if (err) throw err;
@@ -60,35 +61,26 @@ switch (answers.prompt) {
 }
 
 function viewAllDepartments() {
-  db.query('SELECT * FROM department', (err, result) => {
-    if (err) {
-      console.error('Error retrieving departments:', err);
-      employee_tracker();
-      return;
-    }
+  const query = 'SELECT * FROM department'; 
+  db.query(query, (err, result) => {
+    if (err) throw err;
     console.table(result);
     employee_tracker ();
   });
 }
 function viewAllRoles() {
-  db.query('SELECT * FROM role', (err, result) => {
-    if (err) {
-      console.error('Error retrieving roles:', err);
-      employee_tracker ();
-      return;
-    }
+  const query = "SELECT roles.title, roles.id, departments.department_name, roles.salary from roles join departments on roles.department_id = departments.id"; 
+  db.query(query,(err, result) => {
+    if (err) throw err;
     console.table(result);
     employee_tracker ();
   });
 }
 
 function viewAllEmployees() {
-  db.query('SELECT * FROM employee', (err, result) => {
-    if (err) {
-      console.error('Error retrieving employees:', err);
-      employee_tracker ();
-      return;
-    }
+  const query = "SELECT e.id, e.first_name, e.last_name, r.title, d.department_name, r.salary "; 
+  db.query(query,(err, result) => {
+    if (err) throw err;
     console.table(result);
     employee_tracker();
   });
@@ -99,6 +91,7 @@ async function addDepartment() {
     {
       type: 'input',
       name: 'newDepartment',
+
       message: 'What is the new department?'
     }
   ]);
@@ -188,9 +181,3 @@ async function updateEmployeeRole()  {
     employee_tracker();
   }) 
 }
-
-
-db.connect(err => {
-  if (err) throw err
-  employee_tracker();
-})
