@@ -125,9 +125,6 @@ async function addRole() {
       type: "input",
       name: "department",
       message: "What is the department new role?",
-      choices: res.map(
-        (department) => department.department_name
-      ),
     },
   ]);
   // Insert new role into the database
