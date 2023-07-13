@@ -51,12 +51,11 @@ THEN I am prompted to select an employee to update and their new role and this i
 ```
 
 ## Usage Instructions
-1. Open the content management systems (CMS) named "Thomas & Friends SQL Employee Tracker".
-2. Open 'Intergrated Terminal' on 'server.js' and enter 'node server.js'
+1. Open the content management systems (CMS) named " SQL Employee Tracker".
+2. Open 'Intergrated Terminal' on 'index.js' and enter 'node index.js'
 3. Use the 'UP' and 'DOWN' arrow keys to navigate the command line. 
 4. Click 'enter' or 'return' on your respective choice.
 5. Follow all commad line prompts as directed until desired choice has been met.
-6. Additionally, for more in-depth instructions [Click Here to Watch.](https://www.youtube.com/watch?v=m9CQxR0AfiQ)
 
 ## Repository Link:
 [Repository Link 'Click Here'.](https://github.com/jaldhara21/SQL-Employee-Tracker)
