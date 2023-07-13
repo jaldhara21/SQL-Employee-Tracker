@@ -59,7 +59,7 @@ THEN I am prompted to select an employee to update and their new role and this i
 6. Additionally, for more in-depth instructions [Click Here to Watch.](https://www.youtube.com/watch?v=m9CQxR0AfiQ)
 
 ## Repository Link:
-[Repository Link 'Click Here'.]()
+[Repository Link 'Click Here'.](https://github.com/jaldhara21/SQL-Employee-Tracker)
 
 ## YouTube Walkthrough Video:
 [Click Here to Watch.](https://drive.google.com/file/d/1TbBUbrGjyHMhyIZmjsindoANFRqDyPQR/view)
