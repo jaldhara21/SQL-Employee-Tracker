@@ -69,7 +69,7 @@ function viewAllDepartments() {
   });
 }
 function viewAllRoles() {
-  const query = "SELECT roles.title, roles.id, departments.department_name, roles.salary from roles join departments on roles.department_id = departments.id"; 
+  const query = 'SELECT * FROM role'; 
   db.query(query,(err, result) => {
     if (err) throw err;
     console.table(result);
@@ -78,7 +78,7 @@ function viewAllRoles() {
 }
 
 function viewAllEmployees() {
-  const query = "SELECT e.id, e.first_name, e.last_name, r.title, d.department_name, r.salary "; 
+  const query = "SELECT * FROM employee "; 
   db.query(query,(err, result) => {
     if (err) throw err;
     console.table(result);
@@ -87,24 +87,24 @@ function viewAllEmployees() {
 }
 
 async function addDepartment() {
+  try{
   const answers = await inquirer.prompt([
     {
       type: 'input',
       name: 'newDepartment',
-
-      message: 'What is the new department?'
+ message: 'What is the new department?'
     }
   ]);
-  db.query(
-    'INSERT INTO department (department_name) VALUES (?)',
-    [answers.newDepartment],
-    (err, result) => {
-      if (err) throw err
-      console.table (result)
+  const query = "INSERT INTO department (department_name) VALUES (?)";
+  db.query(query, [answers.newDepartment]);
+    
+    
       employee_tracker();
+    } catch (err) {
+      console.error(err);
     }
-  );
-}
+    }
+
 async function addRole() {
   // const sql = `SELECT * FROM role`;
   const answers = await inquirer.prompt([
@@ -127,7 +127,7 @@ async function addRole() {
   db.query(`INSERT INTO role (title, salary, department_id) VALUES (?, ?, ?)`, [answers.newRole, answers.newSalary, answers.newDepartID] , (err, result) => {
     if (err) throw err
     console.table (result)
-    ();
+    employee_tracker();
   });
 }
 
