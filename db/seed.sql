@@ -12,7 +12,7 @@ VALUES
 ('Sales Lead', 90000.00, 1),
 ('Marketing Manager', 125000.00, 1),
 ('Finance Head', 15000.00, 2),
-('Accountant',10000,2)
+('Accountant',10000,2),
 ('Senior Engineer', 185000.00, 3),
 ('IT Manager', 125000.00, 3),
 ('Project Manager', 95000.00, 4),
