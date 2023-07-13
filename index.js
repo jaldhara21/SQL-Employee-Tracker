@@ -179,7 +179,7 @@ async function updateEmployeeRole()  {
     {
       type: "input",
       name: "updateRole",
-      message: "What is the role ID?"
+      message: "What is the roles ID?"
     }
   ])
   db.query(`UPDATE employee SET role_id = ? WHERE id = ?` , [answers.updateRole, answers.updateEmployee] ,  (err, result) => {
